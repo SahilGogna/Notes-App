@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		087809ED225BE9430052FE40 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087809EC225BE9430052FE40 /* LoginViewController.swift */; };
 		087F5C832257F5170014C645 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087F5C822257F5170014C645 /* AppDelegate.swift */; };
 		087F5C852257F5170014C645 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087F5C842257F5170014C645 /* ViewController.swift */; };
 		087F5C882257F5170014C645 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 087F5C862257F5170014C645 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		087809EC225BE9430052FE40 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		087F5C7F2257F5170014C645 /* messagingapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messagingapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		087F5C822257F5170014C645 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		087F5C842257F5170014C645 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				087F5C942257F5720014C645 /* GoogleService-Info.plist */,
 				087F5C8E2257F51A0014C645 /* Info.plist */,
 				08946A4A2259AE7A00CF2EC7 /* ComposeViewController.swift */,
+				087809EC225BE9430052FE40 /* LoginViewController.swift */,
 			);
 			path = messagingapp;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-messagingapp/Pods-messagingapp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -181,6 +185,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -219,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				087809ED225BE9430052FE40 /* LoginViewController.swift in Sources */,
 				08946A4B2259AE7A00CF2EC7 /* ComposeViewController.swift in Sources */,
 				087F5C852257F5170014C645 /* ViewController.swift in Sources */,
 				087F5C832257F5170014C645 /* AppDelegate.swift in Sources */,
