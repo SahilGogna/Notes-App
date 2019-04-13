@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="A9m-zg-Tfe">
             <objects>
-                <viewController id="7JI-Mi-dEi" customClass="LoginViewController" customModule="messagingapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signinpage" id="7JI-Mi-dEi" customClass="LoginViewController" customModule="messagingapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xfS-lr-Ndo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,6 +183,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Nie-i2-Ro6">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="h6h-ur-8wc">
+                            <connections>
+                                <action selector="logout:" destination="BYZ-38-t0r" id="aJC-Ag-JRC"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="lbF-sh-dRp">
                             <connections>
                                 <segue destination="AjP-GV-Tku" kind="show" id="pcd-U5-jn1"/>

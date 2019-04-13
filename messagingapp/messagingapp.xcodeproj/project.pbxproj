@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08714B72225F8ADC00C88570 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08714B71225F8ADC00C88570 /* Department.swift */; };
 		087809ED225BE9430052FE40 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087809EC225BE9430052FE40 /* LoginViewController.swift */; };
 		087F5C832257F5170014C645 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087F5C822257F5170014C645 /* AppDelegate.swift */; };
 		087F5C852257F5170014C645 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087F5C842257F5170014C645 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08714B71225F8ADC00C88570 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		087809EC225BE9430052FE40 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		087F5C7F2257F5170014C645 /* messagingapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messagingapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		087F5C822257F5170014C645 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				087F5C8E2257F51A0014C645 /* Info.plist */,
 				08946A4A2259AE7A00CF2EC7 /* ComposeViewController.swift */,
 				087809EC225BE9430052FE40 /* LoginViewController.swift */,
+				08714B71225F8ADC00C88570 /* Department.swift */,
 			);
 			path = messagingapp;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			files = (
 				087809ED225BE9430052FE40 /* LoginViewController.swift in Sources */,
 				08946A4B2259AE7A00CF2EC7 /* ComposeViewController.swift in Sources */,
+				08714B72225F8ADC00C88570 /* Department.swift in Sources */,
 				087F5C852257F5170014C645 /* ViewController.swift in Sources */,
 				087F5C832257F5170014C645 /* AppDelegate.swift in Sources */,
 			);

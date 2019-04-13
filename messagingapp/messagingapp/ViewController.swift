@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -17,6 +18,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var ref: DatabaseReference?
     
     var databaseHandle: DatabaseHandle?
+    
+    var depArray = [Department]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postData.count
@@ -54,8 +57,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             
         })
-    }
+//        guard let key = ref?.child("Departments").childByAutoId().key else { return }
+//        let department = ["emp_id": "33",
+//                              "id": "1234",
+//                        "location": "Test Location",
+//                       "long_desc": "This is a long desc which is updated",
+//                            "name": "Updated Name",
+//                    "phone_number": "1234512345",
+//                      "short_desc": "This is a short updated desc"
+//        ]
+//    }
 
 
 }
 
+    @IBAction func logout(_ sender: UIBarButtonItem) {
+        do{
+            try Auth.auth().signOut()
+            self.performSegue(withIdentifier: "signinpage", sender: self)
+        }catch{
+            print("Error while signing out!")
+        }
+    }
+}

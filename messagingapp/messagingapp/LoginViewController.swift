@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
 
 class LoginViewController: UIViewController {
@@ -32,9 +33,15 @@ class LoginViewController: UIViewController {
     
     var isSignIn: Bool = true
     
+    //Firebase refrence variable
+    var ref: DatabaseReference?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //set the firebase refrence
+        ref = Database.database().reference()
         
         //hide fname and lname fields when view intitally loads
         firstNameLabel.isHidden = true
@@ -76,39 +83,59 @@ class LoginViewController: UIViewController {
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         
         //TODO: Do some form validation on the email and the password
-        
-        if let email = emailTextField.text, let pass = passwordTextField.text{
-            //check if it is register or SignIn
-            if isSignIn{
-                //signIn the user with the firebase
-                Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
-                    // check if the user is not null
-                    if let u = user{
-                        //user is found , go to home screen
-                        self.performSegue(withIdentifier: "goToDashboard", sender: self)
-                    }else{
-                        //Error: check error and show message
-                        print("\(error)")
-                    }
-                }
-            }else{
+        guard let email = emailTextField.text, let pass = passwordTextField.text else{
+            print("Email or Password Missing!")
+            return
+        }
+        //check if it is register or SignIn
+        if isSignIn{
+            handleSignIn(email: email, pass: pass)
+        }else{
                 // register the user with the firebase
-                Auth.auth().createUser(withEmail: email, password: pass) { (user, error) in
-                    // check if the user is not null
-                    if let u = user{
-                        let userId = Auth.auth().currentUser?.uid
-                        print("\(userId) %%%%%%%%%%%%%%")
-                        
-                        //user is found , go to home screen
-                        self.performSegue(withIdentifier: "goToDashboard", sender: self)
-                        
-                    }else{
-                        //Error: check error and show message
-                        print("\(error)")
-                    }
-                }
-                
+            handleRegistration(email: email, pass: pass)
             }
+        
+    }
+    
+    func handleSignIn(email:String, pass:String){
+        //signIn the user with the firebase
+        Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
+            if error != nil{
+                print(error!)
+                return
+            }
+            //Successfully signed In
+            self.performSegue(withIdentifier: "goToDashboard", sender: self)
         }
     }
+    
+    func handleRegistration(email:String, pass:String){
+        guard let fName = firstNameTextField.text, let lName = lastNameTextField.text else{
+            print("Missing First Name or Last Name")
+            return
+        }
+        Auth.auth().createUser(withEmail: email, password: pass) { (user, error) in
+            if error != nil{
+                print(error!)
+                return
+            }
+            guard let uId = Auth.auth().currentUser?.uid else{
+                return
+            }
+            // Dictionary to save the user values in database
+            let values = ["first_name":fName,
+                          "last_name":lName,
+                          "email": email]
+            //User is authenticated
+            self.ref?.child("users").child(uId).updateChildValues(values, withCompletionBlock: { (error, ref) in
+                if error != nil{
+                    print(error!)
+                    return
+                }
+            })
+            //user is registered , go to home screen
+            self.performSegue(withIdentifier: "goToDashboard", sender: self)
+        }
+    }
+    
 }
